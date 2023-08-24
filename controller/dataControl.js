@@ -19,7 +19,7 @@ const dataControl = {
         console.log(
           `Inserted ${result.insertedCount} documents into the ${collectionName} collection`
         );
-        res.json({ message: "Insert Success" });
+        res.json({ status: 200, message: "Insert Success" });
       } catch (error) {
         console.error(
           "An error occurred while inserting data to MongoDB:",
@@ -46,7 +46,7 @@ const dataControl = {
         console.log(
           `Inserted ${result.insertedCount} documents into the ${collectionName} collection`
         );
-        res.json({ message: "Insert Success" });
+        res.json({ status: 200, message: "Insert Success" });
       } catch (error) {
         console.error(
           "An error occurred while inserting data to MongoDB:",
@@ -72,7 +72,7 @@ const dataControl = {
         console.log(
           `Inserted ${result.insertedCount} documents into the ${collectionName} collection`
         );
-        res.json({ message: "Insert Success" });
+        res.json({ status: 200, message: "Insert Success" });
       } catch (error) {
         console.error(
           "An error occurred while inserting data to MongoDB:",
@@ -98,7 +98,7 @@ const dataControl = {
         console.log(
           `Inserted ${result.insertedCount} documents into the ${collectionName} collection`
         );
-        res.json({ message: "Insert Success" });
+        res.json({ status: 200, message: "Insert Success" });
       } catch (error) {
         console.error(
           "An error occurred while inserting data to MongoDB:",
