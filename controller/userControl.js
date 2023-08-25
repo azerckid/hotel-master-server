@@ -6,8 +6,8 @@ const collectionName = "users";
 
 const userControl = {
   login: async (req, res) => {
-    const { email, password } = req.body;
-    console.log(email, password);
+    const { id, pw, email } = req.body;
+    console.log(id, pw, email);
     try {
       client = await MongoClient.connect(DB_URI, {
         useUnifiedTopology: true,
@@ -16,9 +16,8 @@ const userControl = {
       const db = client.db(DB_NAME);
       const collection = db.collection(collectionName);
 
-      const user = await collection
-        .findOne({ email: email, password: password })
-        .toArray();
+      const user = await collection.findOne({ email: email, password: pw });
+
       if (user) {
         res.json({ message: "Login Success" });
       } else {
@@ -33,8 +32,8 @@ const userControl = {
     }
   },
   register: async (req, res) => {
-    const { email, password } = req.body;
-    console.log(email, password);
+    const { id, pw, email } = req.body;
+    console.log(id, pw, email);
     try {
       client = await MongoClient.connect(DB_URI, {
         useUnifiedTopology: true,
@@ -44,12 +43,12 @@ const userControl = {
 
       const user = await collection.findOne({
         email: email,
-        password: password,
+        password: pw,
       });
       if (user) {
         res.json({ message: "User already exists" });
       } else {
-        await collection.insertOne({ email: email, password: password });
+        await collection.insertOne({ id: id, email: email, password: pw });
         res.json({ message: "Register Success" });
       }
     } catch (error) {

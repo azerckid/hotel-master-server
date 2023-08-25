@@ -8,8 +8,8 @@ route.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-route.post("/register", userControl.register);
-route.post("/login", userControl.login);
+route.post("/api/user/signup", userControl.register);
+route.post("/api/user/login", userControl.login);
 route.post("/logout", userControl.logout);
 
 route.post("/api/import/sanhadate", dataControl.insertData.sanhaDate);
